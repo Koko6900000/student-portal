@@ -1,10 +1,11 @@
 "use client";
-import React from "react";
-
-
+import React, { useState } from "react";
 
 export default function Index() {
-  return (function MainComponent({ activePath = "/" }) {
+  return <StoryComponent />;
+}
+
+function MainComponent({ activePath = "/" }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const menuItems = [
@@ -30,18 +31,14 @@ export default function Index() {
       className={`bg-gray-100 h-screen transition-all duration-300 ${isCollapsed ? "w-16" : "w-64"}`}
     >
       <div className="p-4 flex justify-between items-center border-b border-gray-200">
-        <span
-          className={`font-roboto font-bold ${isCollapsed ? "hidden" : "block"}`}
-        >
+        <span className={`font-roboto font-bold ${isCollapsed ? "hidden" : "block"}`}>
           Menu
         </span>
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
           className="p-2 rounded-lg hover:bg-gray-200 transition-colors"
         >
-          <i
-            className={`fa-solid ${isCollapsed ? "fa-chevron-right" : "fa-chevron-left"}`}
-          ></i>
+          <i className={`fa-solid ${isCollapsed ? "fa-chevron-right" : "fa-chevron-left"}`}></i>
         </button>
       </div>
 
@@ -78,9 +75,7 @@ function StoryComponent() {
       </div>
 
       <div>
-        <h2 className="text-lg font-bold mb-4 font-roboto">
-          Different Active Page:
-        </h2>
+        <h2 className="text-lg font-bold mb-4 font-roboto">Different Active Page:</h2>
         <div className="border rounded-lg overflow-hidden h-[600px]">
           <MainComponent activePath="/grades" />
         </div>
@@ -94,5 +89,4 @@ function StoryComponent() {
       </div>
     </div>
   );
-});
 }

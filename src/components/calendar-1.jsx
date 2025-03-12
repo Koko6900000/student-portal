@@ -1,10 +1,11 @@
 "use client";
-import React from "react";
-
-
+import React, { useState } from "react";
 
 export default function Index() {
-  return (function MainComponent({ events = [], onDayClick = () => {} }) {
+  return <StoryComponent />;
+}
+
+function MainComponent({ events = [], onDayClick = () => {} }) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -123,12 +124,9 @@ export default function Index() {
                 <button
                   key={day}
                   onClick={() => handleDayClick(day)}
-                  className={`
-                    p-2 h-12 flex items-center justify-center relative
-                    hover:bg-gray-100 rounded-lg transition-colors
-                    ${selectedDate === day ? "bg-blue-100" : ""}
-                    ${hasEvent ? "font-bold text-blue-600" : ""}
-                  `}
+                  className={`p-2 h-12 flex items-center justify-center relative hover:bg-gray-100 rounded-lg transition-colors ${
+                    selectedDate === day ? "bg-blue-100" : ""
+                  } ${hasEvent ? "font-bold text-blue-600" : ""}`}
                 >
                   {day}
                   {hasEvent && (
@@ -221,5 +219,4 @@ function StoryComponent() {
       </div>
     </div>
   );
-});
 }

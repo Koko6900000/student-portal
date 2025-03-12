@@ -1,13 +1,11 @@
 "use client";
-import React from "react";
-
-
+import React, { useState } from "react";
 
 export default function Index() {
-  return (function MainComponent({
-  schoolName = "VEDASTO R. SANTIAGO HIGH SCHOOL",
-  user = null,
-}) {
+  return <StoryComponent />;
+}
+
+function MainComponent({ schoolName = "VEDASTO R. SANTIAGO HIGH SCHOOL", user = null }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -109,5 +107,4 @@ function StoryComponent() {
       </div>
     </div>
   );
-});
 }
